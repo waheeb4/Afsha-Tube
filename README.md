@@ -62,18 +62,17 @@ Enter the server's IP and connect.
 Browse and double-click a video to start streaming.
 
 # 🌐 Network Architecture
-[Client] ─────► [Server (Video Port 9999)]
-        └─────► [Server (Audio Port 10000)]
+[Client] ─────► [Server (Video Port 9999)] 
+         ─────► [Server (Audio Port 10000)]
+
 All communication happens over TCP sockets.
 
 Video/audio data is streamed using a custom protocol:
 
 Each packet contains:
 
-8-byte size header
+- 8-byte size header
 
-5-byte type label ("VIDEO"/"AUDIO")
-
-Payload
+- 5-byte type label ("VIDEO"/"AUDIO") payload
 
 🎞️ Videos must be .mp4 and exist in the predefined server directory
